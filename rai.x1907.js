@@ -1,62 +1,72 @@
-// =============================
-// RAI CHAT WIDGET (SCOPED)
-// =============================
-
-// Inject UI inside a unique root
+// Inject UI
 document.body.insertAdjacentHTML("beforeend", `
-  <div id="rai-widget-root">
-    <button id="ai-chat-btn">
-      <svg class="rai-face" viewBox="0 0 58 58" aria-hidden="true">
-        <defs>
-          <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#00e5ff"/>
-            <stop offset="100%" stop-color="#7c4dff"/>
-          </linearGradient>
-        </defs>
+<button id="ai-chat-btn">
+<svg class="rai-face" viewBox="0 0 58 58" aria-hidden="true">
+  <defs>
+    <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#7c4dff"/>
+    </linearGradient>
+  </defs>
 
-        <!-- Antenna -->
-        <rect x="28" y="6" width="2" height="8" rx="1" fill="#7c4dff"/>
-        <circle cx="29" cy="6" r="4" fill="#7c4dff"/>
+  <!-- Antenna (slightly smaller head, more balanced) -->
+  <rect x="28" y="5" width="2" height="9" rx="1" fill="#7c4dff"/>
+  <circle cx="29" cy="4" r="4" fill="#7c4dff"/>
 
-        <!-- Face -->
-        <rect x="9" y="18" width="40" height="32" rx="9" fill="url(#raiGrad)"/>
+  <!-- FACE (slightly narrower & centered better) -->
+  <rect
+    x="8"
+    y="16"
+    width="42"
+    height="36"
+    rx="9"
+    fill="url(#raiGrad)"
+  />
 
-        <!-- Eyes -->
-        <circle class="eye" cx="22" cy="32" r="2.8" fill="#0b0f1a"/>
-        <circle class="eye" cx="36" cy="32" r="2.8" fill="#0b0f1a"/>
+  <!-- Eyes (moved slightly DOWN) -->
+  <circle class="eye" cx="22" cy="30" r="2.8" fill="#0b0f1a"/>
+  <circle class="eye" cx="36" cy="30" r="2.8" fill="#0b0f1a"/>
 
-        <!-- Mouth -->
-        <rect class="mouth" x="23" y="41" width="12" height="3" rx="1.5" fill="#0b0f1a"/>
-      </svg>
+  <!-- Mouth (moved slightly DOWN & centered) -->
+  <rect
+    class="mouth"
+    x="22"
+    y="42"
+    width="14"
+    height="3"
+    rx="1.5"
+    fill="#0b0f1a"
+  />
+</svg>
+
+
+
+
+</button>
+
+<div id="ai-chat-box">
+  <div id="ai-chat-header">RAI — AI Assistant</div>
+  <div id="ai-chat-messages"></div>
+  <div id="ai-chat-input-area">
+    <input id="ai-chat-input" placeholder="Ask something..." />
+
+    <button id="ai-mic-btn" class="circle-btn">
+      <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png">
     </button>
 
-    <div id="ai-chat-box">
-      <div id="ai-chat-header">RAI — AI Assistant</div>
-      <div id="ai-chat-messages"></div>
-      <div id="ai-chat-input-area">
-        <input id="ai-chat-input" placeholder="Ask something..." />
-
-        <button id="ai-mic-btn" class="circle-btn">
-          <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png">
-        </button>
-
-        <button id="ai-send-btn" class="circle-btn">
-          <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png">
-        </button>
-      </div>
-    </div>
+    <button id="ai-send-btn" class="circle-btn">
+      <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png">
+    </button>
   </div>
+</div>
 `);
 
-// =============================
-// LOGIC
-// =============================
-const root = document.getElementById("rai-widget-root");
-const btn = root.querySelector("#ai-chat-btn");
-const box = root.querySelector("#ai-chat-box");
-const input = root.querySelector("#ai-chat-input");
-const sendBtn = root.querySelector("#ai-send-btn");
-const msgs = root.querySelector("#ai-chat-messages");
+const btn = document.getElementById("ai-chat-btn");
+const box = document.getElementById("ai-chat-box");
+const input = document.getElementById("ai-chat-input");
+const sendBtn = document.getElementById("ai-send-btn");
+const micBtn = document.getElementById("ai-mic-btn");
+const msgs = document.getElementById("ai-chat-messages");
 
 btn.onclick = () => {
   const open = box.style.display === "flex";
@@ -94,6 +104,7 @@ function sendMessage() {
 
   addUserMessage(question);
   input.value = "";
+
   btn.classList.add("rai-speaking");
 
   fetch("https://grateful790-rai-chatbot.hf.space/api/chat", {
