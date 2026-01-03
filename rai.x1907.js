@@ -31,7 +31,7 @@ document.body.insertAdjacentHTML("beforeend", `
   <rect
     class="mouth"
     x="22"
-    y="41"
+    y="42"
     width="14"
     height="3"
     rx="1.5"
