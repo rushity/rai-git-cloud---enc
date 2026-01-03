@@ -10,12 +10,12 @@ document.body.insertAdjacentHTML("beforeend", `
   </defs>
 
   <!-- Antenna -->
-  <rect x="28" y="5" width="2" height="6" rx="1" fill="#7c4dff"/>
-  <circle cx="29" cy="5" r="3" fill="#7c4dff"/>
+  <rect x="28" y="5" width="2" height="9" rx="1" fill="#7c4dff"/>
+  <circle cx="29" cy="5" r="5" fill="#7c4dff"/>
 
   <!-- FACE (SQUARE WITH ROUNDED CORNERS) -->
   <rect
-    x="11"
+    x="9"
     y="16"
     width="40"
     height="35"
