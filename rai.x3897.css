@@ -138,8 +138,8 @@
 
 /* Make SVG fill the button */
 #ai-chat-btn .rai-face {
-  width: 62px;
-  height: 62px;
+  width: 100%;
+  height: 100%;
 }
 
 
