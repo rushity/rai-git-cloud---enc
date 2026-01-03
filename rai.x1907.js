@@ -1,30 +1,33 @@
 // Inject UI
 document.body.insertAdjacentHTML("beforeend", `
 <button id="ai-chat-btn">
-  <svg class="rai-face" viewBox="0 0 58 58" width="26" height="26" aria-hidden="true">
-    <defs>
-      <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#00e5ff"/>
-        <stop offset="100%" stop-color="#7c4dff"/>
-      </linearGradient>
-    </defs>
+ <svg class="rai-face" viewBox="0 0 58 58" width="26" height="26"
+     preserveAspectRatio="xMidYMid meet">
 
-    <!-- Antenna -->
-    <rect x="28" y="4" width="2" height="6" rx="1" fill="#7c4dff"/>
-    <circle cx="29" cy="4" r="3" fill="#7c4dff"/>
+  <defs>
+    <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#7c4dff"/>
+    </linearGradient>
+  </defs>
 
-    <!-- Face (26x22 exactly like original CSS) -->
-    <rect x="16" y="18" width="26" height="22" rx="10"
-          fill="url(#raiGrad)"/>
+  <!-- Antenna -->
+  <rect x="28" y="6" width="2" height="6" rx="1" fill="#7c4dff"/>
+  <circle cx="29" cy="6" r="3" fill="#7c4dff"/>
 
-    <!-- Eyes -->
-    <circle class="eye" cx="22" cy="25" r="2.5" fill="#0b0f1a"/>
-    <circle class="eye" cx="36" cy="25" r="2.5" fill="#0b0f1a"/>
+  <!-- Face body (OPTICALLY CENTERED like CSS translateY(4px)) -->
+  <rect x="16" y="22" width="26" height="22" rx="10"
+        fill="url(#raiGrad)"/>
 
-    <!-- Mouth -->
-    <rect class="mouth" x="24" y="32" width="10" height="3" rx="1.5"
-          fill="#0b0f1a"/>
-  </svg>
+  <!-- Eyes (slightly high, same as CSS top:-3px) -->
+  <circle class="eye" cx="22" cy="29" r="2.5" fill="#0b0f1a"/>
+  <circle class="eye" cx="36" cy="29" r="2.5" fill="#0b0f1a"/>
+
+  <!-- Mouth (low, same as bottom:6px) -->
+  <rect class="mouth" x="24" y="36" width="10" height="3" rx="1.5"
+        fill="#0b0f1a"/>
+</svg>
+
 </button>
 
 <div id="ai-chat-box">
