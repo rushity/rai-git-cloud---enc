@@ -29,7 +29,37 @@
   max-width: none !important;
   height: auto;
 }
+/* =============================== */
+/* RAI WIDGET – FULL CSS ISOLATION */
+/* =============================== */
 
+#rai-widget-root {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999999;
+  transform: none !important;
+}
+
+#rai-widget-root,
+#rai-widget-root * {
+  box-sizing: border-box !important;
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  line-height: normal !important;
+}
+
+/* Kill host button styles */
+#rai-widget-root button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Kill host img rules */
+#rai-widget-root img {
+  max-width: none !important;
+  height: auto;
+}
 
 /* Floating Button – centers robot perfectly */
 #ai-chat-btn {
