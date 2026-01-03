@@ -9,35 +9,36 @@ document.body.insertAdjacentHTML("beforeend", `
     </linearGradient>
   </defs>
 
-  <!-- Antenna -->
-  <rect x="28" y="5" width="2" height="9" rx="1" fill="#7c4dff"/>
-  <circle cx="29" cy="5" r="5" fill="#7c4dff"/>
+  <!-- Antenna (unchanged) -->
+  <rect x="28" y="5" width="2" height="6" rx="1" fill="#7c4dff"/>
+  <circle cx="29" cy="5" r="3" fill="#7c4dff"/>
 
-  <!-- FACE (SQUARE WITH ROUNDED CORNERS) -->
+  <!-- FACE BODY (⬇ moved DOWN by 2px) -->
   <rect
-    x="7"
-    y="16"
-    width="43"
-    height="36"
+    x="11"
+    y="20"
+    width="36"
+    height="26"
     rx="9"
     fill="url(#raiGrad)"
   />
 
-  <!-- Eyes -->
-  <circle class="eye" cx="22" cy="29" r="2.8" fill="#0b0f1a"/>
-  <circle class="eye" cx="36" cy="29" r="2.8" fill="#0b0f1a"/>
+  <!-- Eyes (⬇ moved DOWN by 2px) -->
+  <circle class="eye" cx="22" cy="31" r="2.8" fill="#0b0f1a"/>
+  <circle class="eye" cx="36" cy="31" r="2.8" fill="#0b0f1a"/>
 
-  <!-- Mouth -->
+  <!-- Mouth (⬇ moved DOWN by 2px) -->
   <rect
     class="mouth"
-    x="22"
-    y="39"
-    width="14"
+    x="24"
+    y="38"
+    width="10"
     height="3"
     rx="1.5"
     fill="#0b0f1a"
   />
 </svg>
+
 
 
 
