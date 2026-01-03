@@ -16,7 +16,7 @@ document.body.insertAdjacentHTML("beforeend", `
   <!-- FACE (slightly narrower & centered better) -->
   <rect
     x="9"
-    y="18"
+    y="17"
     width="41"
     height="36"
     rx="9"
