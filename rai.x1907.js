@@ -16,8 +16,8 @@ document.body.insertAdjacentHTML("beforeend", `
   <!-- FACE (SQUARE WITH ROUNDED CORNERS) -->
   <rect
     x="11"
-    y="20"
-    width="38"
+    y="16"
+    width="40"
     height="35"
     rx="9"
     fill="url(#raiGrad)"
