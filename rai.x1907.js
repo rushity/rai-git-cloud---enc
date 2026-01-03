@@ -30,9 +30,9 @@ document.body.insertAdjacentHTML("beforeend", `
   <!-- Mouth (moved slightly DOWN & centered) -->
   <rect
     class="mouth"
-    x="23"
+    x="22"
     y="41"
-    width="13"
+    width="14"
     height="3"
     rx="1.5"
     fill="#0b0f1a"
