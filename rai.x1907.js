@@ -1,8 +1,9 @@
 // Inject UI
 document.body.insertAdjacentHTML("beforeend", `
 <button id="ai-chat-btn">
- <svg class="rai-face" viewBox="0 0 58 58" width="26" height="26"
-     preserveAspectRatio="xMidYMid meet">
+<svg class="rai-face" viewBox="0 0 58 58">
+
+     
 
   <defs>
     <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">

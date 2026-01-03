@@ -136,6 +136,13 @@
   border: 1px solid #e5e7eb;
 }
 
+/* Make SVG fill the button */
+#ai-chat-btn .rai-face {
+  width: 32px;
+  height: 32px;
+}
+
+
 .circle-btn {
   width: 42px;
   height: 42px;
