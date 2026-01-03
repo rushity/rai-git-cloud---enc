@@ -24,8 +24,8 @@ document.body.insertAdjacentHTML("beforeend", `
   />
 
   <!-- Eyes (moved slightly DOWN) -->
-  <circle class="eye" cx="22" cy="32" r="2.8" fill="#0b0f1a"/>
-  <circle class="eye" cx="36" cy="32" r="2.8" fill="#0b0f1a"/>
+  <circle class="eye" cx="22" cy="31" r="2.8" fill="#0b0f1a"/>
+  <circle class="eye" cx="36" cy="31" r="2.8" fill="#0b0f1a"/>
 
   <!-- Mouth (moved slightly DOWN & centered) -->
   <rect
