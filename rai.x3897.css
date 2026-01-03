@@ -1,3 +1,4 @@
+/* Global reset */
 *,
 *::before,
 *::after {
@@ -36,29 +37,30 @@
 
 /* SVG face */
 .rai-face {
+  display: block;
   filter: drop-shadow(0 0 12px rgba(124,92,255,0.6));
 }
 
-/* Eye blink */
+/* Eye blink (same timing as original CSS) */
 .rai-face .eye {
   transform-origin: center;
-  animation: blink 4s infinite;
+  animation: blink 2.5s infinite;
 }
 
 @keyframes blink {
-  0%, 94%, 100% { transform: scaleY(1); }
-  96% { transform: scaleY(0.2); }
+  0%, 95%, 100% { transform: scaleY(1); }
+  97% { transform: scaleY(0.15); }
 }
 
-/* Mouth talk */
+/* Mouth talking */
 .rai-speaking .mouth {
   animation: talk 1.1s infinite ease-in-out;
 }
 
 @keyframes talk {
-  0%   { width: 8px; }
+  0%   { width: 10px; }
   50%  { width: 14px; }
-  100% { width: 8px; }
+  100% { width: 10px; }
 }
 
 /* Chat box */
@@ -68,7 +70,7 @@
   right: 22px;
   width: 360px;
   height: 480px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 20px 45px rgba(0,0,0,.3);
   display: none;
@@ -78,14 +80,16 @@
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* Header */
 #ai-chat-header {
   background: linear-gradient(135deg, #5b5ce2, #7b5cff);
-  color: #fff;
+  color: white;
   padding: 16px;
   font-weight: 600;
   text-align: center;
 }
 
+/* Messages */
 #ai-chat-messages {
   flex: 1;
   padding: 16px;
@@ -93,6 +97,7 @@
   background: #f9fafb;
 }
 
+/* Bubbles */
 .chat-bubble {
   max-width: 78%;
   padding: 12px 14px;
@@ -145,19 +150,4 @@
 
 .circle-btn img {
   width: 18px;
-}
-
-.rai-face {
-  display: block;
-  filter: drop-shadow(0 0 12px rgba(124,92,255,0.6));
-}
-
-/* Blink */
-.rai-face circle {
-  transform-origin: center;
-}
-
-@keyframes blink {
-  0%, 94%, 100% { transform: scaleY(1); }
-  96% { transform: scaleY(0.2); }
 }

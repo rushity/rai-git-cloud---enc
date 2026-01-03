@@ -1,7 +1,7 @@
 // Inject UI
 document.body.insertAdjacentHTML("beforeend", `
 <button id="ai-chat-btn">
-  <svg class="rai-face" viewBox="0 0 48 48" width="26" height="26">
+  <svg class="rai-face" viewBox="0 0 58 58" width="26" height="26" aria-hidden="true">
     <defs>
       <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#00e5ff"/>
@@ -10,23 +10,22 @@ document.body.insertAdjacentHTML("beforeend", `
     </defs>
 
     <!-- Antenna -->
-    <rect x="23" y="2" width="2" height="6" rx="1" fill="#7c4dff"/>
-    <circle cx="24" cy="2" r="3" fill="#7c4dff"/>
+    <rect x="28" y="4" width="2" height="6" rx="1" fill="#7c4dff"/>
+    <circle cx="29" cy="4" r="3" fill="#7c4dff"/>
 
-    <!-- Face body (MATCHES 26x22 ratio) -->
-    <rect x="11" y="10" width="26" height="22" rx="10"
+    <!-- Face (26x22 exactly like original CSS) -->
+    <rect x="16" y="18" width="26" height="22" rx="10"
           fill="url(#raiGrad)"/>
 
     <!-- Eyes -->
-    <circle cx="19" cy="18" r="2.5" fill="#0b0f1a"/>
-    <circle cx="29" cy="18" r="2.5" fill="#0b0f1a"/>
+    <circle class="eye" cx="22" cy="25" r="2.5" fill="#0b0f1a"/>
+    <circle class="eye" cx="36" cy="25" r="2.5" fill="#0b0f1a"/>
 
     <!-- Mouth -->
-    <rect x="19" y="25" width="10" height="3" rx="1.5"
+    <rect class="mouth" x="24" y="32" width="10" height="3" rx="1.5"
           fill="#0b0f1a"/>
   </svg>
 </button>
-
 
 <div id="ai-chat-box">
   <div id="ai-chat-header">RAI — AI Assistant</div>
@@ -53,10 +52,12 @@ const micBtn = document.getElementById("ai-mic-btn");
 const msgs = document.getElementById("ai-chat-messages");
 
 btn.onclick = () => {
-  box.style.display = box.style.display === "flex" ? "none" : "flex";
-  setTimeout(() => input.focus(), 200);
+  const open = box.style.display === "flex";
+  box.style.display = open ? "none" : "flex";
+  if (!open) setTimeout(() => input.focus(), 200);
 };
 
+// Initial message
 addBotMessage("Hi 👋 I’m RAI. How can I help you today?");
 
 sendBtn.onclick = sendMessage;
