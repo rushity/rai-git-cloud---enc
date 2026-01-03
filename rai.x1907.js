@@ -32,7 +32,7 @@ document.body.insertAdjacentHTML("beforeend", `
     class="mouth"
     x="23"
     y="41"
-    width="12"
+    width="13"
     height="3"
     rx="1.5"
     fill="#0b0f1a"
