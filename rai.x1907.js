@@ -1,7 +1,7 @@
 // Inject UI
 document.body.insertAdjacentHTML("beforeend", `
 <button id="ai-chat-btn">
-  <svg class="rai-face" viewBox="0 0 64 64" width="28" height="28">
+  <svg class="rai-face" viewBox="0 0 48 48" width="26" height="26">
     <defs>
       <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#00e5ff"/>
@@ -9,27 +9,24 @@ document.body.insertAdjacentHTML("beforeend", `
       </linearGradient>
     </defs>
 
-    <!-- Dark circle -->
-    <circle cx="32" cy="32" r="28" fill="#0b0f1a"/>
-
     <!-- Antenna -->
-    <line x1="32" y1="4" x2="32" y2="14"
-          stroke="#7c4dff" stroke-width="3"/>
-    <circle cx="32" cy="4" r="4" fill="#7c4dff"/>
+    <rect x="23" y="2" width="2" height="6" rx="1" fill="#7c4dff"/>
+    <circle cx="24" cy="2" r="3" fill="#7c4dff"/>
 
-    <!-- Face -->
-    <rect x="14" y="18" width="36" height="28" rx="10"
+    <!-- Face body (MATCHES 26x22 ratio) -->
+    <rect x="11" y="10" width="26" height="22" rx="10"
           fill="url(#raiGrad)"/>
 
     <!-- Eyes -->
-    <circle class="eye" cx="26" cy="30" r="3" fill="#0b0f1a"/>
-    <circle class="eye" cx="38" cy="30" r="3" fill="#0b0f1a"/>
+    <circle cx="19" cy="18" r="2.5" fill="#0b0f1a"/>
+    <circle cx="29" cy="18" r="2.5" fill="#0b0f1a"/>
 
     <!-- Mouth -->
-    <rect class="mouth" x="26" y="38" width="12" height="4" rx="2"
+    <rect x="19" y="25" width="10" height="3" rx="1.5"
           fill="#0b0f1a"/>
   </svg>
 </button>
+
 
 <div id="ai-chat-box">
   <div id="ai-chat-header">RAI — AI Assistant</div>
