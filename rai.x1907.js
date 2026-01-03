@@ -1,34 +1,41 @@
 // Inject UI
+// Inject UI with isolation root
 document.body.insertAdjacentHTML("beforeend", `
-    
-<button id="ai-chat-btn">
-  <div class="rai-robot friendly">
-    <div class="antenna"></div>
+  <div id="rai-widget-root">
 
-    <span class="eye left"></span>
-    <span class="eye right"></span>
+    <button id="ai-chat-btn">
+      <div class="rai-robot friendly">
+        <div class="antenna"></div>
 
-    <div class="mouth"></div>
-  </div>
-</button>
+        <span class="eye left"></span>
+        <span class="eye right"></span>
+
+        <div class="mouth"></div>
+      </div>
+    </button>
 
     <div id="ai-chat-box">
       <div id="ai-chat-header">RAI — AI Assistant</div>
       <div id="ai-chat-messages"></div>
+
       <div id="ai-chat-input-area">
-  <input id="ai-chat-input" placeholder="Ask something..." />
+        <input id="ai-chat-input" placeholder="Ask something..." />
 
-  <button id="ai-mic-btn" class="circle-btn" title="Speak">
-    <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png" alt="Mic">
-  </button>
+        <button id="ai-mic-btn" class="circle-btn" title="Speak">
+          <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png">
+        </button>
 
-  <button id="ai-send-btn" class="circle-btn" title="Send">
-    <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png" alt="Send">
-  </button>
-</div>
-
+        <button id="ai-send-btn" class="circle-btn" title="Send">
+          <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png">
+        </button>
+      </div>
     </div>
-    `);
+
+  </div>
+`);
+
+    
+
 
 const btn = document.getElementById("ai-chat-btn");
 const box = document.getElementById("ai-chat-box");
