@@ -1,159 +1,124 @@
-// ==============================
-// RAI CHATBOT – SAFE INJECTION
-// ==============================
+// Inject UI
+document.body.insertAdjacentHTML("beforeend", `
+<button id="ai-chat-btn">
+<svg class="rai-face" viewBox="0 0 58 58" aria-hidden="true">
+  <defs>
+    <linearGradient id="raiGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#7c4dff"/>
+    </linearGradient>
+  </defs>
 
-(function () {
+  <!-- Antenna (slightly smaller head, more balanced) -->
+  <rect x="28" y="5" width="2" height="9" rx="1" fill="#7c4dff"/>
+  <circle cx="29" cy="4" r="4" fill="#7c4dff"/>
 
-  // Prevent double load
-  if (document.getElementById("rai-widget-root")) return;
+  <!-- FACE (slightly narrower & centered better) -->
+  <rect
+    x="8"
+    y="16"
+    width="42"
+    height="36"
+    rx="9"
+    fill="url(#raiGrad)"
+  />
 
-  document.body.insertAdjacentHTML("beforeend", `
-    <div id="rai-widget-root">
+  <!-- Eyes (moved slightly DOWN) -->
+  <circle class="eye" cx="22" cy="30" r="2.8" fill="#0b0f1a"/>
+  <circle class="eye" cx="36" cy="30" r="2.8" fill="#0b0f1a"/>
 
-      <button id="ai-chat-btn">
-        <div class="rai-robot friendly">
-          <div class="antenna"></div>
-          <span class="eye left"></span>
-          <span class="eye right"></span>
-          <div class="mouth"></div>
-        </div>
-      </button>
+  <!-- Mouth (moved slightly DOWN & centered) -->
+  <rect
+    class="mouth"
+    x="22"
+    y="42"
+    width="14"
+    height="3"
+    rx="1.5"
+    fill="#0b0f1a"
+  />
+</svg>
 
-      <div id="ai-chat-box">
-        <div id="ai-chat-header">RAI — AI Assistant</div>
-        <div id="ai-chat-messages"></div>
 
-        <div id="ai-chat-input-area">
-          <input id="ai-chat-input" placeholder="Ask something..." />
 
-          <button id="ai-mic-btn" class="circle-btn" title="Speak">
-            <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png">
-          </button>
 
-          <button id="ai-send-btn" class="circle-btn" title="Send">
-            <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png">
-          </button>
-        </div>
-      </div>
+</button>
 
-    </div>
-  `);
+<div id="ai-chat-box">
+  <div id="ai-chat-header">RAI — AI Assistant</div>
+  <div id="ai-chat-messages"></div>
+  <div id="ai-chat-input-area">
+    <input id="ai-chat-input" placeholder="Ask something..." />
 
-  const btn = document.getElementById("ai-chat-btn");
-  const box = document.getElementById("ai-chat-box");
-  const input = document.getElementById("ai-chat-input");
-  const sendBtn = document.getElementById("ai-send-btn");
-  const micBtn = document.getElementById("ai-mic-btn");
-  const msgs = document.getElementById("ai-chat-messages");
+    <button id="ai-mic-btn" class="circle-btn">
+      <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png">
+    </button>
 
-  btn.onclick = () => {
-    const open = box.style.display === "flex";
-    box.style.display = open ? "none" : "flex";
-    if (!open) setTimeout(() => input.focus(), 300);
-  };
+    <button id="ai-send-btn" class="circle-btn">
+      <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png">
+    </button>
+  </div>
+</div>
+`);
 
-  addBotMessage("Hi 👋 I’m RAI. How can I help you today?");
+const btn = document.getElementById("ai-chat-btn");
+const box = document.getElementById("ai-chat-box");
+const input = document.getElementById("ai-chat-input");
+const sendBtn = document.getElementById("ai-send-btn");
+const micBtn = document.getElementById("ai-mic-btn");
+const msgs = document.getElementById("ai-chat-messages");
 
-  sendBtn.onclick = sendMessage;
-  input.addEventListener("keydown", e => {
-    if (e.key === "Enter") sendMessage();
-  });
+btn.onclick = () => {
+  const open = box.style.display === "flex";
+  box.style.display = open ? "none" : "flex";
+  if (!open) setTimeout(() => input.focus(), 200);
+};
 
-  function addUserMessage(text) {
-    const div = document.createElement("div");
-    div.className = "chat-bubble ai-user";
-    div.innerText = text;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-  }
+// Initial message
+addBotMessage("Hi 👋 I’m RAI. How can I help you today?");
 
-  function addBotMessage(text) {
-    const div = document.createElement("div");
-    div.className = "chat-bubble ai-bot";
-    div.innerHTML = `<span class="rai-label">RAI:</span> ${text}`;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-    return div;
-  }
+sendBtn.onclick = sendMessage;
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") sendMessage();
+});
 
-  function addSystemMessage(text) {
-    const div = document.createElement("div");
-    div.className = "chat-bubble ai-bot";
-    div.style.fontStyle = "italic";
-    div.style.opacity = "0.7";
-    div.innerHTML = `<span class="rai-label">RAI:</span> ${text}`;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-    return div;
-  }
+function addUserMessage(text) {
+  const div = document.createElement("div");
+  div.className = "chat-bubble ai-user";
+  div.innerText = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
 
-  function speakText(text) {
-    if (!("speechSynthesis" in window)) return;
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US";
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(u);
-  }
+function addBotMessage(text) {
+  const div = document.createElement("div");
+  div.className = "chat-bubble ai-bot";
+  div.innerHTML = `<span class="rai-label">RAI:</span> ${text}`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
 
-  let recognition;
-  if ("webkitSpeechRecognition" in window) {
-    recognition = new webkitSpeechRecognition();
-    recognition.lang = "en-US";
+function sendMessage() {
+  const question = input.value.trim();
+  if (!question) return;
 
-    micBtn.onclick = () => {
-      micBtn.classList.add("listening");
-      const listening = addSystemMessage("RAI is listening…");
-      recognition.start();
+  addUserMessage(question);
+  input.value = "";
 
-      recognition.onresult = e => {
-        input.value = e.results[0][0].transcript;
-        micBtn.classList.remove("listening");
-        listening.remove();
-        sendMessage(true);
-      };
+  btn.classList.add("rai-speaking");
 
-      recognition.onerror = () => {
-        micBtn.classList.remove("listening");
-        listening.remove();
-      };
-
-      recognition.onend = () => {
-        micBtn.classList.remove("listening");
-      };
-    };
-  } else {
-    micBtn.style.display = "none";
-  }
-
-  function sendMessage(fromVoice = false) {
-    const q = input.value.trim();
-    if (!q) return;
-
-    addUserMessage(q);
-    input.value = "";
-
-    const thinking = document.createElement("div");
-    thinking.className = "chat-bubble ai-bot thinking";
-    thinking.innerHTML = `<span class="rai-label">RAI</span> is thinking`;
-    msgs.appendChild(thinking);
-    msgs.scrollTop = msgs.scrollHeight;
-
-    fetch("https://grateful790-rai-chatbot.hf.space/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: q })
+  fetch("https://grateful790-rai-chatbot.hf.space/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question })
+  })
+    .then(res => res.json())
+    .then(data => {
+      addBotMessage(data.answer || "No response.");
+      btn.classList.remove("rai-speaking");
     })
-      .then(r => r.json())
-      .then(d => {
-        thinking.remove();
-        const reply = d.answer || "I couldn’t find an answer.";
-        addBotMessage(reply);
-        if (fromVoice) speakText(reply);
-      })
-      .catch(() => {
-        thinking.remove();
-        addBotMessage("Sorry, server issue.");
-      });
-  }
-
-})();
+    .catch(() => {
+      addBotMessage("Server error.");
+      btn.classList.remove("rai-speaking");
+    });
+}
