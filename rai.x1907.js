@@ -1,10 +1,13 @@
 // ==============================
-// RAI CHATBOT – STRICT ISOLATION
+// RAI CHATBOT – STRICT EMBED SAFE
 // ==============================
 
 (function () {
+
+  // Prevent double injection
   if (document.getElementById("rai-widget-root")) return;
 
+  // Inject UI (UI MARKUP UNCHANGED)
   document.body.insertAdjacentHTML("beforeend", `
     <div id="rai-widget-root">
 
