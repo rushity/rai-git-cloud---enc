@@ -17,7 +17,7 @@ document.body.insertAdjacentHTML("beforeend", `
   <rect
     x="8"
     y="16"
-    width="42"
+    width="43"
     height="36"
     rx="9"
     fill="url(#raiGrad)"
