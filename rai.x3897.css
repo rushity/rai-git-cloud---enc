@@ -1,16 +1,16 @@
 /* ============================= */
-/* RAI WIDGET – FULLY SCOPED */
+/* GLOBAL RESET */
 /* ============================= */
-
-#rai-widget-root {
-  all: initial;
-  font-family: "Segoe UI", Arial, sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* ============================= */
 /* FLOATING BUTTON */
 /* ============================= */
-#rai-widget-root #ai-chat-btn {
+#ai-chat-btn {
   position: fixed;
   bottom: 22px;
   right: 22px;
@@ -31,49 +31,54 @@
     0 0 0 3px rgba(124,92,255,0.2),
     0 0 25px rgba(124,92,255,0.7);
 
-  animation: rai-float 2.5s ease-in-out infinite;
+  animation: float 2.5s ease-in-out infinite;
 }
 
-@keyframes rai-float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+/* Floating animation */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
 
-/* SVG face */
-#rai-widget-root .rai-face {
+/* ============================= */
+/* SVG FACE (KEY PART) */
+/* ============================= */
+#ai-chat-btn .rai-face {
   width: 100%;
   height: 100%;
   display: block;
+
+  /* glow same as original */
   filter: drop-shadow(0 0 12px rgba(124,92,255,0.6));
 }
 
-/* Eye blink */
-#rai-widget-root .eye {
+/* Eye blink (same timing as original CSS) */
+.rai-face .eye {
   transform-origin: center;
-  animation: rai-blink 2.5s infinite;
+  animation: blink 2.5s infinite;
 }
 
-@keyframes rai-blink {
+@keyframes blink {
   0%, 95%, 100% { transform: scaleY(1); }
   97% { transform: scaleY(0.15); }
 }
 
-/* Mouth talking */
-#rai-widget-root .rai-speaking .mouth {
-  animation: rai-talk 1.1s infinite ease-in-out;
+/* Mouth talking animation */
+.rai-speaking .mouth {
+  animation: talk 1.1s infinite ease-in-out;
 }
 
-@keyframes rai-talk {
-  0% { width: 10px; }
-  50% { width: 14px; }
+@keyframes talk {
+  0%   { width: 10px; }
+  50%  { width: 14px; }
   100% { width: 10px; }
 }
 
 /* ============================= */
 /* CHAT BOX */
 /* ============================= */
-#rai-widget-root #ai-chat-box {
+#ai-chat-box {
   position: fixed;
   bottom: 95px;
   right: 22px;
@@ -88,11 +93,12 @@
   flex-direction: column;
   overflow: hidden;
   z-index: 9999;
+
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 /* Header */
-#rai-widget-root #ai-chat-header {
-  flex-shrink: 0;
+#ai-chat-header {
   background: linear-gradient(135deg, #5b5ce2, #7b5cff);
   color: #ffffff;
   padding: 16px;
@@ -100,33 +106,32 @@
   text-align: center;
 }
 
-/* Messages */
-#rai-widget-root #ai-chat-messages {
+/* Messages area */
+#ai-chat-messages {
   flex: 1;
-  padding: 20px 16px 16px;
+  padding: 16px;
   overflow-y: auto;
   background: #f9fafb;
 }
 
 /* Chat bubbles */
-#rai-widget-root .chat-bubble {
+.chat-bubble {
   max-width: 78%;
   padding: 12px 14px;
   margin: 10px 0;
   border-radius: 16px;
 }
 
-#rai-widget-root .ai-user {
+.ai-user {
   background: #e5e7eb;
   margin-left: auto;
 }
 
-#rai-widget-root .ai-bot {
+.ai-bot {
   background: #eef2ff;
-  opacity: 1;
 }
 
-#rai-widget-root .rai-label {
+.rai-label {
   font-weight: 600;
   background: linear-gradient(135deg, #5b5ce2, #7b5cff);
   -webkit-background-clip: text;
@@ -136,14 +141,14 @@
 /* ============================= */
 /* INPUT AREA */
 /* ============================= */
-#rai-widget-root #ai-chat-input-area {
+#ai-chat-input-area {
   display: flex;
   gap: 10px;
   padding: 10px;
   border-top: 1px solid #e5e7eb;
 }
 
-#rai-widget-root #ai-chat-input {
+#ai-chat-input {
   flex: 1;
   padding: 12px 16px;
   border-radius: 999px;
@@ -151,7 +156,8 @@
   outline: none;
 }
 
-#rai-widget-root .circle-btn {
+/* Mic & Send buttons */
+.circle-btn {
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -164,6 +170,6 @@
   cursor: pointer;
 }
 
-#rai-widget-root .circle-btn img {
+.circle-btn img {
   width: 18px;
 }
