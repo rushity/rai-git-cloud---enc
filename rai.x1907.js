@@ -9,35 +9,36 @@ document.body.insertAdjacentHTML("beforeend", `
     </linearGradient>
   </defs>
 
-  <!-- Antenna -->
-  <rect x="28" y="5" width="2" height="9" rx="1" fill="#7c4dff"/>
-  <circle cx="29" cy="5" r="5" fill="#7c4dff"/>
+  <!-- Antenna (slightly smaller head, more balanced) -->
+  <rect x="28" y="6" width="2" height="8" rx="1" fill="#7c4dff"/>
+  <circle cx="29" cy="6" r="4" fill="#7c4dff"/>
 
-  <!-- FACE (SQUARE WITH ROUNDED CORNERS) -->
+  <!-- FACE (slightly narrower & centered better) -->
   <rect
-    x="7"
-    y="16"
-    width="43"
-    height="36"
+    x="9"
+    y="18"
+    width="40"
+    height="32"
     rx="9"
     fill="url(#raiGrad)"
   />
 
-  <!-- Eyes -->
-  <circle class="eye" cx="22" cy="29" r="2.8" fill="#0b0f1a"/>
-  <circle class="eye" cx="36" cy="29" r="2.8" fill="#0b0f1a"/>
+  <!-- Eyes (moved slightly DOWN) -->
+  <circle class="eye" cx="22" cy="32" r="2.8" fill="#0b0f1a"/>
+  <circle class="eye" cx="36" cy="32" r="2.8" fill="#0b0f1a"/>
 
-  <!-- Mouth -->
+  <!-- Mouth (moved slightly DOWN & centered) -->
   <rect
     class="mouth"
-    x="22"
-    y="39"
-    width="14"
+    x="23"
+    y="41"
+    width="12"
     height="3"
     rx="1.5"
     fill="#0b0f1a"
   />
 </svg>
+
 
 
 
