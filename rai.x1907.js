@@ -219,7 +219,7 @@ async function typeBotMessage(text){
 
     const thinking = document.createElement("div");
     thinking.className = "chat-bubble ai-bot thinking";
-    tthinking.innerHTML = `
+    thinking.innerHTML = `
 <span class="rai-label">RAI</span>
 
 <div class="thinking-dots">
