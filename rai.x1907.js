@@ -103,25 +103,19 @@ document.head.appendChild(markedScript);
   }
 
   function addBotMessage(text) {
+  const div = document.createElement("div");
+  div.className = "chat-bubble ai-bot";
 
-    const div = document.createElement("div");
-    div.className = "chat-bubble ai-bot";
+  if (window.marked) {
+    text = marked.parse(text);
+  }
 
-    let html = text;
+  div.innerHTML = `<span class="rai-label">RAI:</span> ${text}`;
 
-    if (window.marked) {
-        html = marked.parse(text);
-    }
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
 
-    div.innerHTML = `
-        <span class="rai-label">RAI:</span>
-        <div class="rai-content">${html}</div>
-    `;
-
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-
-    return div;
+  return div;
 }
 
  
@@ -131,14 +125,9 @@ async function typeBotMessage(text){
     const div = document.createElement("div");
     div.className = "chat-bubble ai-bot";
 
-    div.innerHTML = `
-        <span class="rai-label">RAI:</span>
-        <div class="rai-content"></div>
-    `;
+    div.innerHTML = `<span class="rai-label">RAI:</span>`;
 
     msgs.appendChild(div);
-
-    const content = div.querySelector(".rai-content");
 
     let current = "";
 
@@ -149,9 +138,9 @@ async function typeBotMessage(text){
         current += text[i];
 
         if(window.marked){
-            content.innerHTML = marked.parse(current);
+            div.innerHTML = `<span class="rai-label">RAI:</span> ${marked.parse(current)}`;
         }else{
-            content.textContent = current;
+            div.innerHTML = `<span class="rai-label">RAI:</span> ${current}`;
         }
 
         msgs.scrollTop = msgs.scrollHeight;
@@ -219,15 +208,7 @@ async function typeBotMessage(text){
 
     const thinking = document.createElement("div");
     thinking.className = "chat-bubble ai-bot thinking";
-    thinking.innerHTML = `
-<span class="rai-label">RAI</span>
-
-<div class="thinking-dots">
-<span></span>
-<span></span>
-<span></span>
-</div>
-`;
+    thinking.innerHTML = `<span class="rai-label">RAI</span> is thinking`;
     msgs.appendChild(thinking);
     msgs.scrollTop = msgs.scrollHeight;
 
