@@ -311,11 +311,23 @@ left: 10px;
 border-radius: 14px;
 }
 
-#ai-chat-header {
-font-size: 16px;
-padding: 14px;
-}
+#ai-chat-header{
 
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 16px;
+
+    background:linear-gradient(135deg,#5b5ce2,#7b5cff);
+
+    color:#fff;
+
+}
 #ai-chat-messages {
 padding: 12px;
 font-size: 14px;
@@ -604,28 +616,38 @@ text-decoration:underline;
 
     gap:12px;
 
+    flex:1;
+
 }
 
 .rai-avatar{
-
     width:42px;
-
     height:42px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.18);
+    background:#ffffff;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+    flex-shrink:0;
+}
+
+.rai-avatar-text{
 
     font-size:22px;
 
-    backdrop-filter:blur(10px);
+    font-weight:700;
 
+    color:#5b5ce2;
+
+    font-family:"Segoe UI",sans-serif;
+
+    line-height:1;
 }
 
 .rai-header-info{
@@ -704,6 +726,8 @@ text-decoration:underline;
     align-items:center;
 
     gap:6px;
+
+    flex-shrink:0;
 
 }
 
