@@ -42,9 +42,9 @@ document.head.appendChild(markedScript);
 
     <div class="rai-header-left">
 
-        <div class="rai-avatar">
-            🤖
-        </div>
+       <div class="rai-avatar">
+    <span class="rai-avatar-text">R</span>
+</div>
 
         <div class="rai-header-info">
 
