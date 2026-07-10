@@ -52,6 +52,28 @@ document.head.appendChild(markedScript);
       <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png" alt="Send">
     </button>
   </div>
+  <div id="rai-footer">
+
+    <div class="footer-line"></div>
+
+    <div class="footer-powered">
+
+        <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+                fill="currentColor"
+                d="M13 2L4 14h6l-1 8 9-12h-6L13 2z">
+            </path>
+        </svg>
+
+        <span>
+            Powered by <strong>Larxius Technologies</strong>
+        </span>
+
+    </div>
+
+    <div class="footer-line"></div>
+
+</div>
 </div>
 `;
   shadow.appendChild(root);
