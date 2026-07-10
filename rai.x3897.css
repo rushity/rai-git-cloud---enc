@@ -498,3 +498,92 @@
 .ai-bot a:hover{
     text-decoration:underline;
 }
+
+/* ==========================================
+   Powered by Footer
+========================================== */
+
+#rai-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:8px 12px;
+
+    background:#fff;
+
+}
+
+.footer-line{
+
+    flex:1;
+
+    height:1px;
+
+    background:#e4e7f0;
+
+}
+
+.footer-powered{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    white-space:nowrap;
+
+    font-size:11px;
+
+    color:#7b7b7b;
+
+}
+
+.footer-powered strong{
+
+    color:#5b5ce2;
+
+    font-weight:600;
+
+}
+
+.footer-icon{
+
+    width:16px;
+
+    height:16px;
+
+    color:#7b5cff;
+
+    flex-shrink:0;
+
+    filter:drop-shadow(0 0 5px rgba(123,92,255,.4));
+
+    animation:footerBolt 2s ease-in-out infinite;
+
+}
+
+@keyframes footerBolt{
+
+    0%{
+        transform:scale(1);
+        opacity:.75;
+    }
+
+    50%{
+        transform:scale(1.18);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:.75;
+    }
+
+}
