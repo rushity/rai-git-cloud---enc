@@ -41,37 +41,44 @@ document.head.appendChild(markedScript);
   <div id="ai-chat-header">RAI — AI Assistant</div>
   <div id="ai-chat-messages"></div>
 
-  <div id="ai-chat-input-area">
-    <input id="ai-chat-input" placeholder="Ask something..." />
+ <div id="ai-chat-input-area">
 
-    <button id="ai-mic-btn" class="circle-btn" title="Speak">
-      <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png" alt="Mic">
-    </button>
+    <div id="rai-input-row">
 
-    <button id="ai-send-btn" class="circle-btn" title="Send">
-      <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png" alt="Send">
-    </button>
-  </div>
-  <div id="rai-footer">
+        <input id="ai-chat-input" placeholder="Ask something..." />
 
-    <div class="footer-line"></div>
+        <button id="ai-mic-btn" class="circle-btn" title="Speak">
+            <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/mic.png" alt="Mic">
+        </button>
 
-    <div class="footer-powered">
-
-        <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-                fill="currentColor"
-                d="M13 2L4 14h6l-1 8 9-12h-6L13 2z">
-            </path>
-        </svg>
-
-        <span>
-            Powered by <strong>Larxius Technologies</strong>
-        </span>
+        <button id="ai-send-btn" class="circle-btn" title="Send">
+            <img src="https://raw.githubusercontent.com/rushity/rai-chatbot/main/assets/send.png" alt="Send">
+        </button>
 
     </div>
 
-    <div class="footer-line"></div>
+    <div id="rai-footer">
+
+        <div class="footer-line"></div>
+
+        <div class="footer-powered">
+
+            <svg class="footer-icon" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="M13 2L4 14h6l-1 8 9-12h-6L13 2z">
+                </path>
+            </svg>
+
+            <span>
+                Powered by <strong>Larxius Technologies</strong>
+            </span>
+
+        </div>
+
+        <div class="footer-line"></div>
+
+    </div>
 
 </div>
 </div>
